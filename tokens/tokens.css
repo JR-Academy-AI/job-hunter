@@ -1,0 +1,118 @@
+/* =====================================================
+   Job Hunter / 求职匠 — Design Tokens (CSS Variables)
+   Tagline: 你的 AI 求职助手
+   Mood: Warm Professional Blue — LinkedIn × Canva × Linear
+   Mascot: 牛 (UniMate family) + 墨镜 + 西装 + 公文包
+   Grid: 4pt · Font: PingFang SC
+   Source of truth: tokens.json
+   ===================================================== */
+
+:root {
+  /* —— Brand —— */
+  --jh-primary:   #5F7CFB;   /* Periwinkle 主色 — AI 分析 / 主 CTA */
+  --jh-secondary: #9BB1FF;   /* 次级蓝 — 柔和高亮 */
+  --jh-accent:    #FF8A7A;   /* 珊瑚 — Offer / 转化 / 紧迫 */
+  --jh-navy:      #182035;   /* 海军深 — 标题 / Logo */
+
+  /* —— Neutral —— */
+  --jh-gray:        #66728D;
+  --jh-light-gray:  #E6E9F2;
+  --jh-warm-white:  #FFFEF7;  /* 页面默认 bg — 不要纯白 */
+  --jh-white:       #FFFFFF;
+
+  /* —— Functional —— */
+  --jh-success: #35C98B;
+  --jh-warning: #FFB84D;
+  --jh-error:   #FF6B6B;
+  --jh-insight: #8B5CF6;
+
+  /* —— Soft washes (card bg / alerts / chip) —— */
+  --jh-soft-blue:   #EEF3FF;
+  --jh-soft-green:  #EAFBF3;
+  --jh-soft-amber:  #FFF6E0;
+  --jh-soft-purple: #F2EDFF;
+  --jh-soft-peach:  #FFF0E8;
+
+  /* —— Gradients —— */
+  --jh-grad-primary:  linear-gradient(135deg, #6F8CFF 0%, #4F6EF7 100%);
+  --jh-grad-soft-blue:linear-gradient(135deg, #F3F6FF 0%, #EAF0FF 100%);
+  --jh-grad-coral:    linear-gradient(135deg, #FF9A80 0%, #FF6B5F 100%);
+  --jh-grad-success:  linear-gradient(135deg, #6BE7BF 0%, #1FC692 100%);
+
+  /* —— Radius (8 步) —— */
+  --jh-radius-xs:   6px;
+  --jh-radius-sm:   10px;
+  --jh-radius-md:   14px;
+  --jh-radius-lg:   18px;
+  --jh-radius-xl:   22px;
+  --jh-radius-xxl:  28px;
+  --jh-radius-xxxl: 36px;
+  --jh-radius-full: 9999px;
+
+  /* —— Spacing (4pt) —— */
+  --jh-space-1:  4px;
+  --jh-space-2:  8px;
+  --jh-space-3:  12px;
+  --jh-space-4:  16px;
+  --jh-space-5:  20px;
+  --jh-space-6:  24px;
+  --jh-space-8:  32px;
+  --jh-space-10: 40px;
+  --jh-space-12: 48px;
+  --jh-space-16: 64px;
+  --jh-space-20: 80px;
+
+  /* —— Shadow —— */
+  --jh-shadow-xs:        0 2px 8px rgba(24,32,53,0.04);
+  --jh-shadow-sm:        0 4px 12px rgba(24,32,53,0.06);
+  --jh-shadow-md:        0 8px 24px rgba(24,32,53,0.08);
+  --jh-shadow-lg:        0 16px 40px rgba(24,32,53,0.10);
+  --jh-shadow-blue-glow: 0 12px 28px rgba(95,124,251,0.28);
+  --jh-shadow-coral-glow:0 12px 28px rgba(255,138,122,0.25);
+
+  /* —— Typography —— */
+  --jh-font-sans: 'PingFang SC', 'Source Han Sans SC', 'HarmonyOS Sans SC',
+                  'Microsoft YaHei', 'Plus Jakarta Sans', 'Inter',
+                  system-ui, -apple-system, sans-serif;
+  --jh-font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+
+  --jh-fs-hero:        48px;
+  --jh-fs-page:        36px;
+  --jh-fs-section:     24px;
+  --jh-fs-card:        18px;
+  --jh-fs-body:        16px;
+  --jh-fs-body-sm:     14px;
+  --jh-fs-caption:     12px;
+  --jh-fs-button:      15px;
+  --jh-fs-data-number: 40px;  /* 匹配度 86% / 积分 / 大数字 */
+
+  --jh-fw-regular:   400;
+  --jh-fw-medium:    500;
+  --jh-fw-semibold:  600;
+  --jh-fw-bold:      700;
+  --jh-fw-extrabold: 800;
+
+  --jh-lh-tight:   1.15;
+  --jh-lh-snug:    1.3;
+  --jh-lh-normal:  1.5;
+  --jh-lh-relaxed: 1.7;
+
+  /* —— Motion —— */
+  --jh-dur-button:   160ms;
+  --jh-dur-card:     200ms;
+  --jh-dur-modal:    240ms;
+  --jh-dur-progress: 400ms;
+  --jh-dur-mascot:   400ms;
+  --jh-ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --jh-ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* —— Type presets —— */
+.jh-hero    { font: var(--jh-fw-extrabold) var(--jh-fs-hero)/var(--jh-lh-tight) var(--jh-font-sans); letter-spacing: -0.02em; color: var(--jh-navy); }
+.jh-page    { font: var(--jh-fw-bold)      var(--jh-fs-page)/var(--jh-lh-tight) var(--jh-font-sans); letter-spacing: -0.01em; color: var(--jh-navy); }
+.jh-section { font: var(--jh-fw-bold)      var(--jh-fs-section)/var(--jh-lh-snug) var(--jh-font-sans); color: var(--jh-navy); }
+.jh-card    { font: var(--jh-fw-bold)      var(--jh-fs-card)/var(--jh-lh-snug) var(--jh-font-sans); color: var(--jh-navy); }
+.jh-body    { font: var(--jh-fw-regular)   var(--jh-fs-body)/var(--jh-lh-normal) var(--jh-font-sans); color: var(--jh-gray); }
+.jh-body-sm { font: var(--jh-fw-regular)   var(--jh-fs-body-sm)/var(--jh-lh-normal) var(--jh-font-sans); color: var(--jh-gray); }
+.jh-caption { font: var(--jh-fw-medium)    var(--jh-fs-caption)/var(--jh-lh-normal) var(--jh-font-sans); color: var(--jh-gray); }
+.jh-data    { font: var(--jh-fw-extrabold) var(--jh-fs-data-number)/1 var(--jh-font-mono); letter-spacing: -0.02em; color: var(--jh-primary); }

@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Job Hunter / 求职匠 — Brand Book</title>
+  <meta name="description" content="求职匠 设计系统 / 品牌手册 — 你的 AI 求职助手" />
+  <link rel="stylesheet" href="tokens/tokens.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: var(--jh-font-sans);
+      background: var(--jh-warm-white);
+      color: var(--jh-navy);
+      line-height: var(--jh-lh-normal);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { color: var(--jh-primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: var(--jh-font-mono); font-size: 13px; background: var(--jh-light-gray); padding: 1px 6px; border-radius: var(--jh-radius-xs); color: var(--jh-navy); }
+
+    .page { max-width: 1240px; margin: 0 auto; padding: 48px 32px 96px; }
+
+    /* —— Hero —— */
+    .hero {
+      display: grid; grid-template-columns: 280px 1fr;
+      gap: 36px; align-items: center;
+      padding: 40px 44px;
+      border-radius: var(--jh-radius-xxxl);
+      background: var(--jh-grad-soft-blue);
+      box-shadow: var(--jh-shadow-md);
+      margin-bottom: 28px;
+    }
+    .hero .mascot-slot {
+      position: relative; aspect-ratio: 1/1;
+      display: grid; place-items: center;
+    }
+    .hero .mascot-slot svg { width: 220px; height: 220px; filter: drop-shadow(0 16px 32px rgba(24,32,53,0.18)); }
+    .hero h1 { margin: 0 0 6px; font-size: 56px; font-weight: 800; letter-spacing: -0.02em; color: var(--jh-navy); line-height: 1.05; }
+    .hero .en { margin: 0 0 18px; font-size: 22px; font-weight: 700; letter-spacing: 0.04em; color: var(--jh-gray); }
+    .hero .tag { margin: 0 0 6px; font-size: 16px; color: var(--jh-navy); font-weight: 500; }
+    .hero .tag-en { margin: 0 0 22px; font-size: 13px; color: var(--jh-gray); font-style: italic; }
+    .feat-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .feat-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 16px; border-radius: var(--jh-radius-full);
+      background: var(--jh-white);
+      border: 1.5px solid var(--jh-light-gray);
+      font-size: 13px; font-weight: 600; color: var(--jh-navy);
+      box-shadow: var(--jh-shadow-xs);
+    }
+    .feat-pill .ic { font-size: 14px; }
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; padding: 28px; text-align: center; }
+      .hero h1 { font-size: 38px; }
+      .hero .mascot-slot svg { width: 160px; height: 160px; }
+    }
+
+    /* —— Section wrappers —— */
+    section.s {
+      background: var(--jh-white);
+      border-radius: var(--jh-radius-xl);
+      padding: 28px 32px;
+      margin-bottom: 22px;
+      box-shadow: var(--jh-shadow-sm);
+    }
+    section.s > header {
+      display: flex; align-items: baseline; gap: 12px;
+      margin-bottom: 22px; padding-bottom: 14px;
+      border-bottom: 1px dashed var(--jh-light-gray);
+    }
+    section.s > header .num {
+      font-family: var(--jh-font-mono);
+      color: var(--jh-secondary); font-weight: 700; font-size: 14px;
+    }
+    section.s > header h2 {
+      margin: 0; font-size: 20px; font-weight: 700; color: var(--jh-navy);
+    }
+    section.s > header .zh { color: var(--jh-gray); font-size: 14px; font-weight: 500; }
+
+    .grid { display: grid; gap: 14px; }
+    .g-2 { grid-template-columns: repeat(2, 1fr); }
+    .g-3 { grid-template-columns: repeat(3, 1fr); }
+    .g-4 { grid-template-columns: repeat(4, 1fr); }
+    .g-5 { grid-template-columns: repeat(5, 1fr); }
+    .g-6 { grid-template-columns: repeat(6, 1fr); }
+    .g-8 { grid-template-columns: repeat(8, 1fr); }
+    @media (max-width: 900px) {
+      .g-4, .g-5, .g-6, .g-8 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* —— Brand display —— */
+    .brand-bigcard {
+      background: linear-gradient(135deg, #F3F6FF 0%, #EAF0FF 100%);
+      border-radius: var(--jh-radius-xxl);
+      padding: 28px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      align-items: center;
+    }
+    .brand-bigcard .logos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .brand-thumb {
+      background: var(--jh-white); border-radius: var(--jh-radius-lg);
+      padding: 16px 8px; text-align: center;
+      box-shadow: var(--jh-shadow-xs);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+    }
+    .brand-thumb svg { width: 56px; height: 56px; }
+    .brand-thumb .label { font-size: 11px; color: var(--jh-gray); }
+
+    /* —— 02 Colors —— */
+    .swatch { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .swatch .chip {
+      width: 100%; aspect-ratio: 1/1;
+      border-radius: var(--jh-radius-lg);
+      box-shadow: var(--jh-shadow-xs);
+    }
+    .swatch .chip.outlined { border: 1px solid var(--jh-light-gray); }
+    .swatch .name { font-weight: 700; font-size: 13px; color: var(--jh-navy); }
+    .swatch .hex { font-family: var(--jh-font-mono); font-size: 11px; color: var(--jh-gray); }
+
+    /* —— 03 Typography —— */
+    .type-hero-box {
+      background: var(--jh-soft-blue);
+      border-radius: var(--jh-radius-lg);
+      padding: 32px 18px; text-align: center;
+    }
+    .type-row {
+      display: grid; grid-template-columns: 80px 1fr 200px;
+      align-items: baseline; gap: 16px;
+      padding: 12px 0; border-bottom: 1px dashed var(--jh-light-gray);
+    }
+    .type-row:last-child { border-bottom: 0; }
+    .type-row .label { color: var(--jh-secondary); font-family: var(--jh-font-mono); font-size: 12px; font-weight: 700; }
+    .type-row .specs { color: var(--jh-gray); font-size: 12px; font-family: var(--jh-font-mono); text-align: right; }
+
+    /* —— 04 Mascot —— */
+    .mascot-cell {
+      background: var(--jh-soft-blue);
+      border-radius: var(--jh-radius-lg);
+      padding: 18px 12px 14px;
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      transition: transform var(--jh-dur-card) var(--jh-ease-standard);
+    }
+    .mascot-cell:hover { transform: translateY(-2px); }
+    .mascot-cell svg, .mascot-cell img { width: 110px; height: 110px; object-fit: contain; filter: drop-shadow(0 6px 12px rgba(24,32,53,0.08)); }
+    .mascot-cell .label { font-size: 13px; font-weight: 700; color: var(--jh-navy); text-align: center; }
+    .mascot-cell .scene { font-size: 11px; color: var(--jh-gray); text-align: center; }
+
+    /* —— 05 Buttons —— */
+    .btn {
+      border: 0; cursor: pointer; font-family: inherit;
+      font-weight: 700; transition: transform var(--jh-dur-button) var(--jh-ease-standard), box-shadow var(--jh-dur-button), background var(--jh-dur-button);
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 0 24px; height: 48px;
+      border-radius: var(--jh-radius-full);
+      font-size: 15px;
+    }
+    .btn-primary { background: var(--jh-grad-primary); color: white; box-shadow: var(--jh-shadow-blue-glow); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(95,124,251,0.38); }
+    .btn-coral { background: var(--jh-grad-coral); color: white; box-shadow: var(--jh-shadow-coral-glow); }
+    .btn-coral:hover { transform: translateY(-2px); }
+    .btn-secondary { background: var(--jh-white); border: 1.5px solid #DCE4FF; color: var(--jh-primary); height: 44px; padding: 0 22px; font-size: 14px; }
+    .btn-secondary:hover { border-color: var(--jh-primary); }
+    .btn-ghost { background: transparent; color: var(--jh-primary); font-weight: 600; height: 40px; padding: 0 12px; }
+    .btn-ghost:hover { color: var(--jh-navy); }
+    .btn-disabled { background: var(--jh-light-gray); color: var(--jh-gray); cursor: not-allowed; }
+    .btn .ic { font-size: 16px; }
+
+    .btn-row {
+      display: grid; grid-template-columns: 140px 1fr;
+      gap: 24px; align-items: center;
+      padding: 14px 0; border-bottom: 1px dashed var(--jh-light-gray);
+    }
+    .btn-row:last-child { border-bottom: 0; }
+    .btn-row .lbl { font-size: 13px; color: var(--jh-gray); }
+    .btn-row .lbl strong { display: block; color: var(--jh-navy); font-size: 13px; }
+
+    /* —— 06 Inputs —— */
+    .input {
+      width: 100%; font: inherit; color: var(--jh-navy);
+      height: 52px; padding: 0 16px;
+      border-radius: var(--jh-radius-lg);
+      border: 1.5px solid #DCE4FF;
+      background: var(--jh-white);
+      box-shadow: var(--jh-shadow-sm);
+      transition: border-color var(--jh-dur-button), box-shadow var(--jh-dur-button);
+    }
+    .input::placeholder { color: var(--jh-gray); }
+    .input:focus { outline: 0; border-color: var(--jh-primary); box-shadow: 0 0 0 4px rgba(95,124,251,0.12); }
+
+    .input-group { display: flex; flex-direction: column; gap: 8px; }
+    .input-group .ig-label { font-size: 12px; font-weight: 700; color: var(--jh-gray); }
+    .input-wrap { position: relative; }
+    .input-wrap .icon { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: var(--jh-gray); pointer-events: none; }
+    .input-wrap .input { padding-right: 48px; }
+
+    .upload-zone {
+      padding: 24px; border: 2px dashed #DCE4FF;
+      border-radius: var(--jh-radius-lg);
+      background: var(--jh-soft-blue);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      text-align: center;
+    }
+    .upload-zone .ic { font-size: 30px; color: var(--jh-primary); }
+    .upload-zone .t { font-weight: 700; font-size: 14px; color: var(--jh-navy); }
+    .upload-zone .d { font-size: 12px; color: var(--jh-gray); }
+
+    /* —— 07 Chips —— */
+    .chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 14px; border-radius: var(--jh-radius-full);
+      font-size: 13px; font-weight: 600;
+      background: var(--jh-soft-blue); color: var(--jh-primary);
+    }
+    .chip.green  { background: var(--jh-soft-green); color: #1A9764; }
+    .chip.coral  { background: var(--jh-soft-peach); color: #D4543F; }
+    .chip.purple { background: var(--jh-soft-purple); color: #6840CC; }
+    .chip.amber  { background: var(--jh-soft-amber); color: #C2790A; }
+    .chip.gray   { background: var(--jh-light-gray); color: var(--jh-gray); }
+    .chip .dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+
+    .chip-row { display: flex; flex-wrap: wrap; gap: 10px; }
+
+    /* —— 08 Icons —— */
+    .icon-cell {
+      aspect-ratio: 1/1;
+      background: var(--jh-soft-blue);
+      border-radius: var(--jh-radius-md);
+      display: grid; place-items: center; gap: 6px;
+      padding: 12px;
+      grid-template-rows: 1fr auto;
+    }
+    .icon-cell svg { width: 26px; height: 26px; stroke: var(--jh-navy); stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .icon-cell .name { font-size: 11px; color: var(--jh-gray); font-weight: 600; }
+
+    /* —— 09 Navigation —— */
+    .nav-top {
+      display: flex; align-items: center; gap: 16px;
+      padding: 14px 22px; background: var(--jh-white);
+      border-radius: var(--jh-radius-lg); border: 1px solid var(--jh-light-gray);
+    }
+    .nav-top .brand { display: flex; align-items: center; gap: 8px; font-weight: 800; }
+    .nav-top .brand .dot { width: 24px; height: 24px; border-radius: 50%; background: var(--jh-primary); display: grid; place-items: center; color: white; font-size: 12px; font-weight: 700; }
+    .nav-top .links { display: flex; gap: 18px; flex: 1; margin-left: 14px; }
+    .nav-top .links a { color: var(--jh-gray); font-size: 14px; font-weight: 500; }
+    .nav-top .links a.active { color: var(--jh-primary); font-weight: 700; }
+    .nav-top .credit-pill {
+      padding: 6px 14px; background: var(--jh-soft-blue);
+      border-radius: var(--jh-radius-full);
+      color: var(--jh-primary); font-size: 12px; font-weight: 700;
+    }
+
+    .nav-side {
+      display: flex; flex-direction: column;
+      padding: 14px; background: var(--jh-warm-white);
+      border-radius: var(--jh-radius-lg); gap: 4px;
+      border: 1px solid var(--jh-light-gray);
+    }
+    .nav-side .item {
+      padding: 10px 14px; border-radius: var(--jh-radius-md);
+      color: var(--jh-gray); display: flex; align-items: center; gap: 10px;
+      font-size: 14px; font-weight: 500;
+    }
+    .nav-side .item.active { background: var(--jh-soft-blue); color: var(--jh-primary); font-weight: 700; }
+
+    .nav-bottom {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      background: var(--jh-white); border-radius: var(--jh-radius-lg);
+      border: 1px solid var(--jh-light-gray); padding: 8px;
+    }
+    .nav-bottom .b {
+      display: grid; place-items: center; gap: 4px;
+      padding: 8px 0; color: var(--jh-gray);
+      font-size: 11px; font-weight: 600;
+    }
+    .nav-bottom .b.active { color: var(--jh-primary); font-weight: 700; }
+    .nav-bottom .b.center {
+      background: var(--jh-grad-primary); color: white;
+      border-radius: 50%; width: 48px; height: 48px;
+      align-self: center; justify-self: center;
+      box-shadow: var(--jh-shadow-blue-glow);
+    }
+
+    /* —— 10 Cards —— */
+    .card-base {
+      background: var(--jh-white);
+      border-radius: var(--jh-radius-xl);
+      border: 1px solid var(--jh-light-gray);
+      box-shadow: var(--jh-shadow-md);
+      padding: 18px;
+      transition: transform var(--jh-dur-card) var(--jh-ease-standard), box-shadow var(--jh-dur-card);
+    }
+    .card-base:hover { transform: translateY(-2px); box-shadow: var(--jh-shadow-lg); }
+
+    .card-h {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .card-h .t { font-size: 13px; font-weight: 700; color: var(--jh-navy); display: flex; align-items: center; gap: 6px; }
+    .card-h .t .ic { color: var(--jh-primary); }
+    .card-h .bm { color: var(--jh-gray); }
+
+    .data-big { font: 800 42px/1 var(--jh-font-mono); letter-spacing: -0.02em; color: var(--jh-primary); }
+    .data-big.success { color: var(--jh-success); }
+    .data-big.coral { color: var(--jh-accent); }
+
+    .meter { height: 6px; background: var(--jh-light-gray); border-radius: var(--jh-radius-full); overflow: hidden; margin: 10px 0 4px; }
+    .meter .fill { height: 100%; background: var(--jh-grad-primary); border-radius: var(--jh-radius-full); }
+    .meter .fill.success { background: var(--jh-grad-success); }
+
+    /* —— 11 Alerts —— */
+    .alert {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 12px 16px; border-radius: var(--jh-radius-md);
+      font-size: 14px;
+    }
+    .alert .x { margin-left: auto; color: var(--jh-gray); cursor: pointer; }
+    .alert .ic-wrap { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; color: white; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+    .alert .body .t { font-weight: 700; color: var(--jh-navy); font-size: 13px; }
+    .alert .body .d { color: var(--jh-gray); font-size: 12px; }
+    .alert.success { background: var(--jh-soft-green); border: 1px solid #B5EBD0; }
+    .alert.success .ic-wrap { background: var(--jh-success); }
+    .alert.warning { background: var(--jh-soft-amber); border: 1px solid #FAE2A4; }
+    .alert.warning .ic-wrap { background: var(--jh-warning); }
+    .alert.danger  { background: var(--jh-soft-peach); border: 1px solid #FBC9B5; }
+    .alert.danger .ic-wrap { background: var(--jh-error); }
+    .alert.info    { background: var(--jh-soft-blue); border: 1px solid #C9D6FB; }
+    .alert.info .ic-wrap { background: var(--jh-primary); }
+
+    /* —— 12 Progress steps —— */
+    .step-row {
+      display: grid; grid-template-columns: 100px 1fr 60px;
+      gap: 14px; align-items: center;
+      padding: 10px 0;
+    }
+    .step-row .lbl { font-size: 13px; font-weight: 600; color: var(--jh-navy); }
+    .step-row .v { font-size: 13px; font-family: var(--jh-font-mono); color: var(--jh-primary); font-weight: 700; text-align: right; }
+    .step-row .meter { margin: 0; }
+
+    /* —— 13 Modal —— */
+    .modal-frame {
+      background: var(--jh-white); border-radius: var(--jh-radius-xxl);
+      padding: 22px; max-width: 360px;
+      box-shadow: var(--jh-shadow-lg);
+      display: flex; flex-direction: column; gap: 14px;
+      position: relative;
+    }
+    .modal-frame .x-close { position: absolute; right: 16px; top: 14px; cursor: pointer; color: var(--jh-gray); }
+    .modal-frame .mod-t { font-weight: 700; font-size: 15px; color: var(--jh-navy); }
+
+    /* —— 14 Sample modules (todo / calendar) —— */
+    .module-card {
+      background: var(--jh-white); border-radius: var(--jh-radius-lg);
+      border: 1px solid var(--jh-light-gray);
+      padding: 16px; box-shadow: var(--jh-shadow-xs);
+    }
+    .module-card .mh { font-size: 13px; font-weight: 700; color: var(--jh-navy); margin-bottom: 10px; }
+    .module-card .todo-item { display: flex; align-items: center; gap: 10px; padding: 6px 0; font-size: 13px; color: var(--jh-navy); }
+    .module-card .todo-item .chk {
+      width: 18px; height: 18px; border-radius: 4px;
+      background: var(--jh-soft-blue); border: 1.5px solid var(--jh-secondary);
+      display: grid; place-items: center; color: var(--jh-primary); font-size: 11px; font-weight: 800;
+    }
+    .module-card .todo-item.done .chk { background: var(--jh-primary); border-color: var(--jh-primary); color: white; }
+    .module-card .todo-item.done { color: var(--jh-gray); text-decoration: line-through; }
+
+    /* —— 15 Banner —— */
+    .promo-banner {
+      display: grid; grid-template-columns: 1fr 320px;
+      gap: 24px; align-items: center;
+      padding: 28px 36px;
+      border-radius: var(--jh-radius-xxxl);
+      background: var(--jh-grad-soft-blue);
+      box-shadow: var(--jh-shadow-md);
+      position: relative; overflow: hidden;
+    }
+    .promo-banner h3 { margin: 0 0 8px; font-size: 28px; font-weight: 800; color: var(--jh-navy); }
+    .promo-banner .sub { margin: 0 0 18px; font-size: 14px; color: var(--jh-gray); }
+    .promo-banner svg.mascot-promo { width: 100%; max-width: 220px; height: auto; filter: drop-shadow(0 12px 24px rgba(24,32,53,0.16)); justify-self: end; }
+
+    /* —— 16 Spacing & Shadow —— */
+    .space-row { display: flex; gap: 16px; align-items: flex-end; flex-wrap: wrap; }
+    .space-cell { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .space-cell .b {
+      background: repeating-linear-gradient(45deg, var(--jh-soft-blue), var(--jh-soft-blue) 4px, transparent 4px, transparent 8px);
+      border: 1px dashed var(--jh-secondary);
+      border-radius: 4px;
+    }
+    .space-cell .lbl { font-family: var(--jh-font-mono); font-size: 11px; color: var(--jh-gray); }
+
+    .shadow-cell {
+      background: var(--jh-white); border-radius: var(--jh-radius-lg);
+      padding: 18px 14px; text-align: center;
+    }
+    .shadow-cell .lbl { font-weight: 700; font-size: 13px; color: var(--jh-navy); }
+    .shadow-cell .v { font-family: var(--jh-font-mono); font-size: 10px; color: var(--jh-gray); margin-top: 4px; }
+
+    /* —— Principles + QR —— */
+    .principles {
+      background: var(--jh-white);
+      border-radius: var(--jh-radius-xl);
+      padding: 24px; box-shadow: var(--jh-shadow-sm);
+      display: grid; grid-template-columns: 1fr 200px; gap: 24px;
+      align-items: center;
+    }
+    .principles h3 { margin: 0 0 14px; font-size: 18px; font-weight: 700; color: var(--jh-navy); }
+    .principles ul { margin: 0; padding-left: 18px; font-size: 14px; color: var(--jh-navy); line-height: 1.9; }
+    .principles ul li::marker { color: var(--jh-primary); }
+    .qr-box {
+      background: var(--jh-soft-blue);
+      border-radius: var(--jh-radius-lg);
+      padding: 18px; text-align: center;
+      display: flex; flex-direction: column; gap: 8px; align-items: center;
+    }
+    .qr-box .qr {
+      width: 110px; height: 110px;
+      background:
+        repeating-linear-gradient(0deg, var(--jh-navy) 0 6px, transparent 6px 14px),
+        repeating-linear-gradient(90deg, var(--jh-navy) 0 6px, transparent 6px 14px),
+        var(--jh-white);
+      border-radius: 8px;
+    }
+    .qr-box .qr-t { font-weight: 800; color: var(--jh-navy); font-size: 13px; }
+    .qr-box .qr-sub { font-size: 11px; color: var(--jh-gray); }
+
+    /* —— TODO note —— */
+    .todo-note {
+      padding: 14px 18px;
+      background: var(--jh-soft-amber);
+      border: 1px dashed var(--jh-warning);
+      border-radius: var(--jh-radius-md);
+      font-size: 12px; color: #8B5A0A;
+      margin-bottom: 22px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Reusable bull-mascot SVG (sunglasses + bowtie) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="bull" viewBox="0 0 200 200">
+      <!-- horns -->
+      <path d="M 50 70 Q 35 50 30 30 Q 50 38 60 60 Z" fill="#1F1B2D"/>
+      <path d="M 150 70 Q 165 50 170 30 Q 150 38 140 60 Z" fill="#1F1B2D"/>
+      <!-- head -->
+      <ellipse cx="100" cy="105" rx="62" ry="58" fill="#1F1B2D"/>
+      <!-- snout -->
+      <ellipse cx="100" cy="135" rx="40" ry="28" fill="#FFFFFF"/>
+      <!-- nostrils -->
+      <ellipse cx="88" cy="138" rx="2.5" ry="3.5" fill="#1F1B2D"/>
+      <ellipse cx="112" cy="138" rx="2.5" ry="3.5" fill="#1F1B2D"/>
+      <!-- sunglasses -->
+      <rect x="55" y="92" width="38" height="16" rx="8" fill="#0E1320"/>
+      <rect x="107" y="92" width="38" height="16" rx="8" fill="#0E1320"/>
+      <rect x="93" y="98" width="14" height="3" fill="#0E1320"/>
+      <!-- sunglass highlights -->
+      <ellipse cx="68" cy="98" rx="6" ry="3" fill="#5F7CFB" opacity="0.5"/>
+      <ellipse cx="120" cy="98" rx="6" ry="3" fill="#5F7CFB" opacity="0.5"/>
+      <!-- bowtie (橙领带 stylized) -->
+      <polygon points="86,170 100,158 114,170 114,182 100,176 86,182" fill="#FF8A7A"/>
+      <circle cx="100" cy="170" r="3" fill="#D4543F"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="page">
+
+  <!-- ============ HERO ============ -->
+  <div class="hero">
+    <div class="mascot-slot">
+      <img src="assets/mascot/hero.png" alt="求职匠" style="width:100%;max-width:300px;height:auto;filter:drop-shadow(0 18px 36px rgba(24,32,53,0.18));"/>
+    </div>
+    <div>
+      <h1>求职匠</h1>
+      <p class="en">JOB HUNTER</p>
+      <p class="tag">你的 AI 求职助手 — 帮你分析 JD、优化简历、准备面试、追踪投递进度</p>
+      <p class="tag-en">Your AI job search assistant for smarter applications, better interviews, and faster offers.</p>
+      <div class="feat-pills">
+        <span class="feat-pill"><span class="ic">🤖</span>AI 分析</span>
+        <span class="feat-pill"><span class="ic">📄</span>简历优化</span>
+        <span class="feat-pill"><span class="ic">🎤</span>面试准备</span>
+        <span class="feat-pill"><span class="ic">📊</span>投递追踪</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="todo-note">
+    <strong>📌 进度</strong>：✅ 求职牛 8 标准态全部落盘 + hero 主形象上线。
+    待补：logo 5 件套（horizontal / compact / avatar / app-icon）+ 6 张专属卡片插图 + 完整 promo banner 主图。
+  </div>
+
+  <!-- ============ 1 BRAND ============ -->
+  <section class="s">
+    <header><span class="num">01</span><h2>BRAND</h2><span class="zh">品牌系统</span></header>
+    <div class="brand-bigcard">
+      <div style="text-align:center;">
+        <img src="assets/mascot/hero.png" alt="求职匠" style="width:240px;height:auto;filter:drop-shadow(0 12px 28px rgba(24,32,53,0.18));"/>
+        <div style="margin-top:12px;font-size:42px;font-weight:800;color:var(--jh-navy);letter-spacing:-0.02em;">求职匠</div>
+        <div style="font-size:14px;color:var(--jh-gray);margin-top:4px;">你的 AI 求职助手</div>
+      </div>
+      <div class="logos">
+        <div class="brand-thumb">
+          <img src="assets/mascot/hero-icon.png" alt="" style="width:56px;height:56px;border-radius:14px;background:var(--jh-white);"/>
+          <div class="label">APP 图标</div>
+        </div>
+        <div class="brand-thumb">
+          <img src="assets/mascot/hero-icon.png" alt="" style="width:36px;height:36px;"/>
+          <div style="font-size:14px;font-weight:700;color:var(--jh-navy);">求职匠</div>
+          <div class="label">品牌横版标识</div>
+        </div>
+        <div class="brand-thumb">
+          <img src="assets/mascot/hero-icon.png" alt="" style="width:48px;height:48px;"/>
+          <div style="font-size:14px;font-weight:700;color:var(--jh-navy);">求职匠</div>
+          <div class="label">品牌竖版标识</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2 COLORS ============ -->
+  <section class="s">
+    <header><span class="num">02</span><h2>COLORS</h2><span class="zh">颜色系统</span></header>
+    <div class="grid g-8">
+      <div class="swatch"><div class="chip" style="background:#5F7CFB"></div><div class="name">主色 Primary</div><div class="hex">#5F7CFB</div></div>
+      <div class="swatch"><div class="chip" style="background:#9BB1FF"></div><div class="name">浅蓝 Secondary</div><div class="hex">#9BB1FF</div></div>
+      <div class="swatch"><div class="chip" style="background:#EEF3FF"></div><div class="name">浅蓝 Light</div><div class="hex">#EEF3FF</div></div>
+      <div class="swatch"><div class="chip" style="background:#FF8A7A"></div><div class="name">珊瑚 Accent</div><div class="hex">#FF8A7A</div></div>
+      <div class="swatch"><div class="chip" style="background:#182035"></div><div class="name">深海 Navy</div><div class="hex">#182035</div></div>
+      <div class="swatch"><div class="chip" style="background:#66728D"></div><div class="name">中性灰 Gray</div><div class="hex">#66728D</div></div>
+      <div class="swatch"><div class="chip" style="background:#E6E9F2"></div><div class="name">浅灰 Light Gray</div><div class="hex">#E6E9F2</div></div>
+      <div class="swatch"><div class="chip outlined" style="background:#FFFFFF"></div><div class="name">白色 White</div><div class="hex">#FFFFFF</div></div>
+    </div>
+  </section>
+
+  <!-- ============ 3 TYPOGRAPHY ============ -->
+  <section class="s">
+    <header><span class="num">03</span><h2>TYPOGRAPHY</h2><span class="zh">字体系统</span></header>
+    <div style="display:grid;grid-template-columns:240px 1fr;gap:28px;align-items:center;">
+      <div class="type-hero-box">
+        <div style="font-size:120px;font-weight:800;line-height:1;letter-spacing:-0.04em;color:var(--jh-navy);">Aa</div>
+        <div style="margin-top:12px;font-weight:700;font-size:14px;color:var(--jh-navy);">思源黑体 / PingFang SC</div>
+        <div style="font-size:11px;color:var(--jh-gray);margin-top:4px;">现代 · 专业 · 清晰</div>
+      </div>
+      <div>
+        <div class="type-row"><span class="label">H1</span><span style="font-size:28px;font-weight:700;color:var(--jh-navy);">主要标题</span><span class="specs">28px / Bold</span></div>
+        <div class="type-row"><span class="label">H2</span><span style="font-size:20px;font-weight:700;color:var(--jh-navy);">次要标题</span><span class="specs">20px / Bold</span></div>
+        <div class="type-row"><span class="label">H3</span><span style="font-size:16px;font-weight:600;color:var(--jh-navy);">小标题</span><span class="specs">16px / Semibold</span></div>
+        <div class="type-row"><span class="label">Body</span><span style="font-size:14px;font-weight:400;color:var(--jh-navy);">正文内容 — 14px 是默认阅读尺寸</span><span class="specs">14px / Regular</span></div>
+        <div class="type-row"><span class="label">Caption</span><span style="font-size:12px;color:var(--jh-gray);">次要信息 / 时间戳 / footnote</span><span class="specs">12px / Regular</span></div>
+        <p style="margin:14px 0 0;font-size:12px;color:var(--jh-gray);">匹配度 / 积分等大数字用 <code>JetBrains Mono</code> 等宽。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4 MASCOT ============ -->
+  <section class="s">
+    <header><span class="num">04</span><h2>MASCOT</h2><span class="zh">吉祥物 · 求职牛 · 8 个标准态</span></header>
+    <div class="grid g-4">
+      <div class="mascot-cell"><img src="assets/mascot/analyzing.png" alt=""/><div class="label">分析中 / Analyzing</div><div class="scene">JD 分析 · loading</div></div>
+      <div class="mascot-cell"><img src="assets/mascot/interview-prep.png" alt=""/><div class="label">面试准备 / Interview</div><div class="scene">模拟面试 / 题库</div></div>
+      <div class="mascot-cell"><img src="assets/mascot/resume-edit.png" alt=""/><div class="label">修改简历 / Resume</div><div class="scene">优化页 / score</div></div>
+      <div class="mascot-cell"><img src="assets/mascot/offer.png" alt=""/><div class="label">拿到 Offer / Offer</div><div class="scene">通过 / 庆祝</div></div>
+      <div class="mascot-cell"><img src="assets/mascot/thinking.png" alt=""/><div class="label">思考中 / Thinking</div><div class="scene">空状态 / loading</div></div>
+      <div class="mascot-cell"><img src="assets/mascot/hero.png" alt=""/><div class="label">加油中 / Cheering</div><div class="scene">streak / 自信 hero</div></div>
+      <div class="mascot-cell"><img src="assets/mascot/company-research.png" alt=""/><div class="label">公司研究 / Research</div><div class="scene">公司卡 / 数据洞察</div></div>
+      <div class="mascot-cell"><img src="assets/mascot/networking.png" alt=""/><div class="label">人脉拓展 / Network</div><div class="scene">人脉 / AI 起草</div></div>
+    </div>
+    <p style="margin:14px 0 0;font-size:12px;color:var(--jh-gray);">
+      ⚠️ 共用 UniMate 牛形象但 <strong>必须穿蓝色西装外套 + 墨镜 + 蓝勾 Nike + 公文包</strong>；不要换成企鹅（Cert Master 的）。
+    </p>
+  </section>
+
+  <!-- ============ 5 BUTTONS ============ -->
+  <section class="s">
+    <header><span class="num">05</span><h2>BUTTONS</h2><span class="zh">按钮系统</span></header>
+    <div class="btn-row"><span class="lbl"><strong>Primary</strong>主要按钮</span>
+      <div><button class="btn btn-primary"><span class="ic">+</span>AI 分析简历</button></div>
+    </div>
+    <div class="btn-row"><span class="lbl"><strong>Coral CTA</strong>Offer / 转化</span>
+      <div><button class="btn btn-coral"><span class="ic">✨</span>立即体验</button></div>
+    </div>
+    <div class="btn-row"><span class="lbl"><strong>Secondary</strong>次要按钮</span>
+      <div><button class="btn btn-secondary">公司研究</button></div>
+    </div>
+    <div class="btn-row"><span class="lbl"><strong>Ghost</strong>幽灵按钮</span>
+      <div><button class="btn btn-ghost">了解更多 →</button></div>
+    </div>
+    <div class="btn-row"><span class="lbl"><strong>Hover</strong>悬停态</span>
+      <div><button class="btn btn-primary" style="transform:translateY(-2px);box-shadow:0 16px 36px rgba(95,124,251,0.45);"><span class="ic">+</span>AI 分析简历</button></div>
+    </div>
+    <div class="btn-row"><span class="lbl"><strong>Disabled</strong>禁用态</span>
+      <div><button class="btn btn-disabled"><span class="ic">+</span>AI 分析简历</button></div>
+    </div>
+  </section>
+
+  <!-- ============ 6 INPUTS ============ -->
+  <section class="s">
+    <header><span class="num">06</span><h2>INPUTS</h2><span class="zh">输入框</span></header>
+    <div class="grid g-2" style="gap:22px;">
+      <div class="input-group">
+        <span class="ig-label">职位链接输入（支持多平台）</span>
+        <div class="input-wrap"><input class="input" placeholder="粘贴职位链接，如 LinkedIn / Seek / Indeed / Glassdoor"><span class="icon">🔗</span></div>
+      </div>
+      <div class="input-group">
+        <span class="ig-label">简历上传</span>
+        <div class="upload-zone">
+          <div class="ic">☁️</div>
+          <div class="t">点击或拖拽上传简历 (PDF / DOCX)</div>
+          <div class="d">支持 PDF、DOCX，最大 10MB</div>
+        </div>
+      </div>
+      <div class="input-group" style="grid-column:1/-1;">
+        <span class="ig-label">关键词搜索</span>
+        <div class="input-wrap"><input class="input" placeholder="搜索职位、公司或关键词..."><span class="icon">🔍</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7 CHIPS ============ -->
+  <section class="s">
+    <header><span class="num">07</span><h2>CHIPS &amp; TAGS</h2><span class="zh">标签</span></header>
+    <div style="font-size:11px;font-weight:700;color:var(--jh-gray);margin-bottom:8px;letter-spacing:0.06em;">FEATURE · 功能标签</div>
+    <div class="chip-row" style="margin-bottom:18px;">
+      <span class="chip">JD 分析</span>
+      <span class="chip">面试准备</span>
+      <span class="chip">简历优化</span>
+      <span class="chip">公司研究</span>
+    </div>
+    <div style="font-size:11px;font-weight:700;color:var(--jh-gray);margin-bottom:8px;letter-spacing:0.06em;">STATUS · 求职状态</div>
+    <div class="chip-row">
+      <span class="chip gray"><span class="dot"></span>Saved</span>
+      <span class="chip"><span class="dot"></span>Applied</span>
+      <span class="chip coral"><span class="dot"></span>Interview</span>
+      <span class="chip green"><span class="dot"></span>Offered</span>
+    </div>
+  </section>
+
+  <!-- ============ 8 ICONS ============ -->
+  <section class="s">
+    <header><span class="num">08</span><h2>ICONS</h2><span class="zh">图标系统</span></header>
+    <div class="grid g-8">
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg><span class="name">职位</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="16" rx="1"/><path d="M9 9h2M13 9h2M9 13h2M13 13h2M9 17h2M13 17h2"/></svg><span class="name">公司</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 9h16M9 3v4M15 3v4"/></svg><span class="name">面试</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5z"/><path d="M9 13h6M9 17h4"/></svg><span class="name">简历</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M4 6h16v10H7l-3 3z"/></svg><span class="name">消息</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M5 4h14v16l-7-4-7 4z"/></svg><span class="name">书签</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20a8 8 0 0 1 16 0"/></svg><span class="name">个人</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M3 17l5-5 4 4 8-8M16 8h5v5"/></svg><span class="name">趋势</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="14" rx="3"/><circle cx="9" cy="13" r="1.5"/><circle cx="15" cy="13" r="1.5"/><path d="M9 17h6M12 2v4"/></svg><span class="name">AI 助手</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 9h16M9 3v4M15 3v4"/></svg><span class="name">日历</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M6 3h12v18H6z"/><path d="M9 7h6M9 11h6M9 15h4"/></svg><span class="name">报告</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M4 20V8M10 20V4M16 20v-8M22 20v-4"/></svg><span class="name">图表</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 5v3M12 16v3M5 12h3M16 12h3"/></svg><span class="name">任务</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><span class="name">完成</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M12 4l2.5 5.5L20 10l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg><span class="name">收藏</span></div>
+      <div class="icon-cell"><svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 1 1 12 0v5l2 3H4l2-3z"/><path d="M10 19a2 2 0 0 0 4 0"/></svg><span class="name">提醒</span></div>
+    </div>
+  </section>
+
+  <!-- ============ 9 NAVIGATION ============ -->
+  <section class="s">
+    <header><span class="num">09</span><h2>NAVIGATION</h2><span class="zh">导航系统</span></header>
+    <div style="font-size:11px;font-weight:700;color:var(--jh-gray);margin-bottom:8px;letter-spacing:0.06em;">TOP BAR · Web</div>
+    <div class="nav-top" style="margin-bottom:22px;">
+      <span class="brand"><span class="dot">求</span>求职匠</span>
+      <div class="links">
+        <a class="active">首页</a><a>职位</a><a>AI 助手</a><a>面试准备</a><a>简历优化</a><a>公司研究</a>
+      </div>
+      <span class="credit-pill">120 积分</span>
+    </div>
+
+    <div class="grid g-2">
+      <div>
+        <div style="font-size:11px;font-weight:700;color:var(--jh-gray);margin-bottom:8px;letter-spacing:0.06em;">SIDE BAR · Web</div>
+        <div class="nav-side">
+          <div class="item active">🏠 首页</div>
+          <div class="item">💼 职位推荐</div>
+          <div class="item">🤖 AI 助手</div>
+          <div class="item">🎤 面试准备</div>
+          <div class="item">📄 简历优化</div>
+          <div class="item">🏢 公司研究</div>
+          <div class="item">⭐ 职位收藏</div>
+          <div class="item">📩 消息中心</div>
+          <div class="item">⚙️ 设置</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:700;color:var(--jh-gray);margin-bottom:8px;letter-spacing:0.06em;">BOTTOM NAV · Mobile</div>
+        <div class="nav-bottom">
+          <div class="b active">🏠<span>首页</span></div>
+          <div class="b">💼<span>职位</span></div>
+          <div class="b center">🤖</div>
+          <div class="b">📊<span>追踪</span></div>
+          <div class="b">👤<span>我的</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 10 CARDS ============ -->
+  <section class="s">
+    <header><span class="num">10</span><h2>CARDS</h2><span class="zh">求职相关卡片组件</span></header>
+    <div class="grid g-3">
+      <!-- Job Card -->
+      <div class="card-base">
+        <div class="card-h">
+          <span class="t"><span class="ic">📊</span>职位卡片 · Job Card</span>
+          <span class="bm">🔖</span>
+        </div>
+        <div style="font-weight:700;color:var(--jh-navy);font-size:16px;">Frontend Engineer</div>
+        <div style="font-size:13px;color:var(--jh-gray);margin-top:2px;">ByteDance · 字节跳动</div>
+        <div style="font-size:12px;color:var(--jh-gray);margin-top:6px;">北京 · 3-5年 · 本科</div>
+        <div style="font-size:16px;font-weight:800;color:var(--jh-accent);margin-top:10px;">¥25K - 40K · 16薪</div>
+        <div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap;">
+          <span class="chip" style="padding:3px 10px;font-size:11px;">React</span>
+          <span class="chip" style="padding:3px 10px;font-size:11px;">TypeScript</span>
+          <span class="chip" style="padding:3px 10px;font-size:11px;">前端开发</span>
+        </div>
+        <div style="margin-top:12px;padding-top:10px;border-top:1px dashed var(--jh-light-gray);font-size:12px;color:var(--jh-gray);">匹配度 <strong style="color:var(--jh-success);">92%</strong></div>
+      </div>
+
+      <!-- Company Research Card -->
+      <div class="card-base">
+        <div class="card-h">
+          <span class="t"><span class="ic">🏢</span>公司研究卡片</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:44px;height:44px;border-radius:10px;background:var(--jh-soft-blue);display:grid;place-items:center;font-size:18px;">🏢</div>
+          <div>
+            <div style="font-weight:700;color:var(--jh-navy);">字节跳动</div>
+            <div style="font-size:12px;color:var(--jh-gray);">互联网 · 10000+ 人</div>
+          </div>
+        </div>
+        <div style="margin-top:10px;font-size:13px;color:var(--jh-gray);">综合评分 <strong style="color:var(--jh-warning);">⭐ 4.6</strong></div>
+        <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="chip" style="padding:3px 10px;font-size:11px;">发展前景</span>
+          <span class="chip" style="padding:3px 10px;font-size:11px;">薪酬较高</span>
+          <span class="chip" style="padding:3px 10px;font-size:11px;">工作强度</span>
+        </div>
+        <div style="margin-top:12px;padding-top:10px;border-top:1px dashed var(--jh-light-gray);font-size:12px;color:var(--jh-primary);font-weight:600;">查看详情 →</div>
+      </div>
+
+      <!-- Interview Prep Card -->
+      <div class="card-base">
+        <div class="card-h">
+          <span class="t"><span class="ic">🎤</span>面试准备卡片 · Interview Prep</span>
+        </div>
+        <div style="font-weight:700;color:var(--jh-navy);font-size:15px;margin-top:2px;">算法面试高频题</div>
+        <div style="font-size:12px;color:var(--jh-gray);margin-top:6px;">共 32 题</div>
+        <div style="font-size:12px;color:var(--jh-gray);margin-top:2px;">字节跳动在招岗位匹配度</div>
+        <div style="margin-top:12px;font-size:13px;color:var(--jh-navy);">已完成 <strong>12 / 32</strong></div>
+        <div class="meter"><div class="fill" style="width:38%"></div></div>
+        <div style="margin-top:8px;font-size:12px;color:var(--jh-primary);font-weight:600;">继续练习 →</div>
+      </div>
+
+      <!-- Job Progress Card -->
+      <div class="card-base">
+        <div class="card-h">
+          <span class="t"><span class="ic">📈</span>求职进度卡片 · Job Progress</span>
+        </div>
+        <div style="font-size:12px;color:var(--jh-gray);">整体进度</div>
+        <div class="data-big" style="margin-top:4px;">86<span style="font-size:24px;">%</span></div>
+        <div class="meter"><div class="fill success" style="width:86%"></div></div>
+        <div style="margin-top:10px;font-size:12px;color:var(--jh-gray);">优秀匹配</div>
+        <div style="margin-top:8px;font-size:12px;color:var(--jh-navy);">简历完善度 <strong style="color:var(--jh-success);">75%</strong></div>
+      </div>
+
+      <!-- Profile Match Card -->
+      <div class="card-base">
+        <div class="card-h">
+          <span class="t"><span class="ic">👤</span>个人评分卡片 · Profile Match</span>
+        </div>
+        <div style="display:flex;align-items:flex-end;gap:8px;margin-top:4px;">
+          <span class="data-big">86</span>
+          <span style="font-size:14px;color:var(--jh-gray);margin-bottom:6px;">/ 100</span>
+        </div>
+        <div style="margin-top:10px;display:inline-block;padding:4px 12px;border-radius:var(--jh-radius-full);background:var(--jh-soft-green);color:var(--jh-success);font-size:11px;font-weight:700;">优秀匹配</div>
+        <div style="margin-top:10px;font-size:12px;color:var(--jh-gray);">优化建议 <strong style="color:var(--jh-primary);">12 条</strong></div>
+      </div>
+
+      <!-- Salary Insight Card -->
+      <div class="card-base">
+        <div class="card-h">
+          <span class="t"><span class="ic">💰</span>薪资洞察卡片 · Salary Insight</span>
+        </div>
+        <div style="font-size:11px;color:var(--jh-gray);">市场参考薪资</div>
+        <div style="display:flex;align-items:baseline;gap:6px;margin-top:4px;">
+          <span class="data-big coral">¥20K - 35K</span>
+          <span style="font-size:14px;color:var(--jh-gray);">/月</span>
+        </div>
+        <div style="margin-top:4px;font-size:12px;color:var(--jh-gray);">中位数 <strong style="color:var(--jh-navy);">¥27K</strong></div>
+        <!-- bar chart placeholder -->
+        <div style="display:flex;align-items:flex-end;gap:3px;height:50px;margin-top:14px;">
+          <div style="flex:1;height:30%;background:var(--jh-secondary);border-radius:2px 2px 0 0;"></div>
+          <div style="flex:1;height:55%;background:var(--jh-secondary);border-radius:2px 2px 0 0;"></div>
+          <div style="flex:1;height:80%;background:var(--jh-primary);border-radius:2px 2px 0 0;"></div>
+          <div style="flex:1;height:65%;background:var(--jh-secondary);border-radius:2px 2px 0 0;"></div>
+          <div style="flex:1;height:42%;background:var(--jh-secondary);border-radius:2px 2px 0 0;"></div>
+          <div style="flex:1;height:25%;background:var(--jh-secondary);border-radius:2px 2px 0 0;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 11 ALERTS ============ -->
+  <section class="s">
+    <header><span class="num">11</span><h2>ALERTS</h2><span class="zh">消息提示</span></header>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div class="alert success"><span class="ic-wrap">✓</span><div class="body"><div class="t">简历解析完成！</div><div class="d">已为你生成简历优化建议</div></div><span class="x">×</span></div>
+      <div class="alert warning"><span class="ic-wrap">!</span><div class="body"><div class="t">未检测到完整 JD 内容</div><div class="d">请检查链接是否完整并重新上传</div></div><span class="x">×</span></div>
+      <div class="alert danger"><span class="ic-wrap">×</span><div class="body"><div class="t">链接解析失败</div><div class="d">无法获取到职位详情，请检查后重试</div></div><span class="x">×</span></div>
+      <div class="alert info"><span class="ic-wrap">i</span><div class="body"><div class="t">已保存草稿</div><div class="d">你的求职信息已自动保存至草稿（2 分钟前）</div></div><span class="x">×</span></div>
+    </div>
+  </section>
+
+  <!-- ============ 12 PROGRESS ============ -->
+  <section class="s">
+    <header><span class="num">12</span><h2>PROGRESS &amp; STATUS</h2><span class="zh">进度与状态</span></header>
+    <div class="step-row"><span class="lbl">简历分析</span><div class="meter"><div class="fill" style="width:100%"></div></div><span class="v">100%</span></div>
+    <div class="step-row"><span class="lbl">JD 分析</span><div class="meter"><div class="fill" style="width:100%"></div></div><span class="v">100%</span></div>
+    <div class="step-row"><span class="lbl">匹配分析</span><div class="meter"><div class="fill" style="width:68%"></div></div><span class="v">68%</span></div>
+    <div class="step-row"><span class="lbl">优化建议</span><div class="meter"><div class="fill" style="width:42%"></div></div><span class="v">42%</span></div>
+  </section>
+
+  <!-- ============ 13 MODAL ============ -->
+  <section class="s">
+    <header><span class="num">13</span><h2>MODAL</h2><span class="zh">弹窗</span></header>
+    <div style="background:var(--jh-warm-white);padding:28px;border-radius:var(--jh-radius-lg);display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+      <div class="modal-frame">
+        <span class="x-close">×</span>
+        <div class="mod-t">上传简历</div>
+        <div class="upload-zone">
+          <div class="ic">☁️</div>
+          <div class="t">支持 PDF / DOCX，最大 10MB</div>
+        </div>
+        <button class="btn btn-primary" style="justify-content:center;">选择文件</button>
+      </div>
+      <div class="modal-frame">
+        <span class="x-close">×</span>
+        <div class="mod-t">分析职位链接</div>
+        <div class="input-wrap"><input class="input" placeholder="粘贴 LinkedIn / Seek / Indeed 链接"><span class="icon">🔗</span></div>
+        <button class="btn btn-primary" style="justify-content:center;">开始分析</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 14 SAMPLE MODULES ============ -->
+  <section class="s">
+    <header><span class="num">14</span><h2>SAMPLE MODULES</h2><span class="zh">组件模块</span></header>
+    <div class="grid g-2">
+      <div class="module-card">
+        <div class="mh">待办清单 / Todo</div>
+        <div class="todo-item done"><span class="chk">✓</span>完善简历信息</div>
+        <div class="todo-item done"><span class="chk">✓</span>练习面试题库</div>
+        <div class="todo-item"><span class="chk"></span>投递 5 个职位</div>
+      </div>
+      <div class="module-card">
+        <div class="mh">面试日程 / Schedule</div>
+        <div class="todo-item"><span class="chk" style="background:var(--jh-soft-purple);border-color:var(--jh-insight);color:var(--jh-insight);">🎤</span>产品经理面试 — 字节跳动 · 一面</div>
+        <div style="margin-left:28px;font-size:11px;color:var(--jh-gray);">05/20 14:00</div>
+        <div style="margin-top:10px;"><button class="btn btn-secondary" style="height:34px;font-size:12px;padding:0 16px;">查看详情</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 15 BANNER ============ -->
+  <section class="s" style="padding:0;background:transparent;box-shadow:none;">
+    <header style="background:var(--jh-white);padding:18px 28px;border-radius:var(--jh-radius-xl) var(--jh-radius-xl) 0 0;margin-bottom:0;box-shadow:var(--jh-shadow-sm);"><span class="num">15</span><h2>BANNER</h2><span class="zh">横幅 / 推广模块</span></header>
+    <div class="promo-banner" style="border-radius:0 0 var(--jh-radius-xxxl) var(--jh-radius-xxxl);">
+      <div>
+        <h3>AI 助你脱颖而出，拿到理想 Offer！</h3>
+        <p class="sub">智能分析 · 简历优化 · 面试准备 · 全流程陪伴</p>
+        <button class="btn btn-primary"><span class="ic">✨</span>立即体验 AI 助手</button>
+      </div>
+      <img src="assets/mascot/offer.png" alt="" class="mascot-promo" style="object-fit:contain;"/>
+    </div>
+  </section>
+
+  <!-- ============ 16 SPACING & SHADOW ============ -->
+  <section class="s">
+    <header><span class="num">16</span><h2>SPACING &amp; SHADOW</h2><span class="zh">间距与阴影 · 4pt 网格</span></header>
+    <div style="font-size:11px;font-weight:700;color:var(--jh-gray);margin-bottom:10px;letter-spacing:0.06em;">SPACING · 间距</div>
+    <div class="space-row" style="margin-bottom:24px;">
+      <div class="space-cell"><div class="b" style="width:4px;height:4px;"></div><span class="lbl">4</span></div>
+      <div class="space-cell"><div class="b" style="width:8px;height:8px;"></div><span class="lbl">8</span></div>
+      <div class="space-cell"><div class="b" style="width:12px;height:12px;"></div><span class="lbl">12</span></div>
+      <div class="space-cell"><div class="b" style="width:16px;height:16px;"></div><span class="lbl">16</span></div>
+      <div class="space-cell"><div class="b" style="width:20px;height:20px;"></div><span class="lbl">20</span></div>
+      <div class="space-cell"><div class="b" style="width:24px;height:24px;"></div><span class="lbl">24</span></div>
+      <div class="space-cell"><div class="b" style="width:32px;height:32px;"></div><span class="lbl">32</span></div>
+      <div class="space-cell"><div class="b" style="width:40px;height:40px;"></div><span class="lbl">40</span></div>
+      <div class="space-cell"><div class="b" style="width:48px;height:48px;"></div><span class="lbl">48</span></div>
+      <div class="space-cell"><div class="b" style="width:64px;height:64px;"></div><span class="lbl">64</span></div>
+    </div>
+
+    <div style="font-size:11px;font-weight:700;color:var(--jh-gray);margin-bottom:10px;letter-spacing:0.06em;">SHADOW · 阴影</div>
+    <div class="grid g-5">
+      <div class="shadow-cell" style="box-shadow:none;border:1px dashed var(--jh-light-gray);">
+        <div class="lbl">无影</div>
+        <div class="v">none</div>
+      </div>
+      <div class="shadow-cell" style="box-shadow:var(--jh-shadow-xs);">
+        <div class="lbl">轻阴影</div>
+        <div class="v">shadow-xs</div>
+      </div>
+      <div class="shadow-cell" style="box-shadow:var(--jh-shadow-sm);">
+        <div class="lbl">小阴影</div>
+        <div class="v">shadow-sm</div>
+      </div>
+      <div class="shadow-cell" style="box-shadow:var(--jh-shadow-md);">
+        <div class="lbl">中阴影</div>
+        <div class="v">shadow-md</div>
+      </div>
+      <div class="shadow-cell" style="box-shadow:var(--jh-shadow-lg);">
+        <div class="lbl">深阴影</div>
+        <div class="v">shadow-lg</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRINCIPLES + QR ============ -->
+  <div class="principles">
+    <div>
+      <h3>设计原则</h3>
+      <ul>
+        <li>专业可信，温暖友好</li>
+        <li>AI 赋能，智能高效</li>
+        <li>清晰直观，简单易用</li>
+        <li>行动导向，结果导向</li>
+      </ul>
+    </div>
+    <div class="qr-box">
+      <div class="qr"></div>
+      <div class="qr-t">求职匠</div>
+      <div class="qr-sub">你的 AI 求职助手</div>
+    </div>
+  </div>
+
+  <p style="text-align:center;color:var(--jh-gray);font-size:11px;margin-top:32px;">
+    Job Hunter / 求职匠 · Brand Book v0.1 · JR Academy · 2026-05-12
+  </p>
+</div>
+</body>
+</html>
