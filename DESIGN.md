@@ -4,7 +4,7 @@
 > 任何关于「该用什么色、什么字、什么 mascot、什么按钮」的问题，先来这里查。
 >
 > 配套文件：
-> - `index.html` — 视觉品牌手册（双击就能看）
+> - `index.html` — 视觉设计系统（双击就能看）
 > - `tokens/tokens.json` — W3C Design Tokens 源数据
 > - `tokens/tokens.css` — `--jh-*` CSS 变量
 > - `README.md` — 仓库使用说明
@@ -141,16 +141,23 @@ UI 必须帮用户秒懂以下问题：
 
 ### 3.3 8 个标准态（禁止自创）
 
+> v0.2 2026-05-14：8 张高保真 mascot 已交付，替换原占位图。`networking` 和 `company-research` 因为没有专属新图，**复用其它态作 alias**（见表注），避免破坏已上线代码；新代码请用 8 个 canonical state。
+
 | State | 中文名 | 视觉特征 | 触发场景 |
 |-------|--------|---------|---------|
-| `analyzing` | 分析中 | 拿放大镜看 JD | JD 分析 loading / 解析职位 |
-| `interview-prep` | 面试准备 | 拿小本子 / microphone | 面试模拟 / 题库练习 |
-| `resume-edit` | 修改简历 | 拿简历打勾 | 简历优化页 / score card |
-| `offer` | 拿到 Offer | 举 offer letter / 欢呼 | Offer 收到 / 成功通过 |
-| `thinking` | 思考中 | 手托下巴 | 空状态 / loading 通用 |
-| `cheering` | 加油中 | 拿旗子 / 拳头 | streak / 倒计时 / 鼓励 |
-| `company-research` | 公司研究 | 指向公司图表 | 公司研究卡 / 数据洞察 |
-| `networking` | 人脉拓展 | 拿聊天气泡 | 人脉管理 / AI 消息起草 |
+| `analyzing` | 分析中 | **AR HUD 头盔 + 数据屏环绕** | JD 分析 loading / 解析职位 / **公司研究**（alias `company-research` → 同图） |
+| `interview-prep` | 面试准备 | **蓝头带 + 翻开的书 + 咖啡杯 + 月亮**（夜战） | 面试模拟 / 题库练习 / 备面冲刺 |
+| `resume-edit` | 修改简历 | **蓝头带 + 翻开的书 + 笔在写** | 简历优化页 / score card / Profile SEO |
+| `offer` | 拿到 Offer | **比 V + "100" 红字** | Offer 收到 / 成功通过 / 高匹配（≥85%） |
+| `thinking` | 思考中 | **手托下巴 + 头顶问号** | 空状态 / loading 通用 / 选择困难 |
+| `cheering` | 加油中 | **飞奔 + 火焰 + 拳头举起** | streak / 倒计时 / 鼓励 / 截止日冲刺 |
+| `thumbs-up` | 点赞反馈 ⭐ NEW | **大拇指 + 闪光全身 cheer** | 保存成功 / 正面反馈 / 推荐位（也是 hero 备选；alias `networking` → 同图） |
+| `anxious` | 紧张 / 截止 ⭐ NEW | **闹钟 + 吃惊嘴脸** | 投递截止日 / 面试明天 / 待办积压提醒 |
+
+> Alias（向后兼容旧代码）：
+> - `company-research.png` → 内容 = `analyzing.png`（公司数据分析也是 AI 看数据）
+> - `networking.png` → 内容 = `thumbs-up.png`（正面社交 = 大拇指）
+> - `hero.png` / `hero-icon.png` → 内容 = `thumbs-up.png`（最有产品感的 mascot）
 
 ### 3.4 选择决策树
 
@@ -158,25 +165,30 @@ UI 必须帮用户秒懂以下问题：
 用户在干嘛？
 ├── 分析职位
 │   ├── 分析中 / loading → analyzing
-│   └── 看公司数据 → company-research
+│   └── 看公司数据 → analyzing（公司研究复用同图）
 │
-├── 简历
-│   └── 优化 / 改简历 → resume-edit
+├── 简历 / Profile
+│   └── 优化 / 改简历 / SEO 评分 → resume-edit
 │
 ├── 面试
-│   └── 准备 / 模拟 → interview-prep
+│   └── 准备 / 模拟 / 备面冲刺 → interview-prep
 │
 ├── 投递追踪
-│   ├── 拿到 Offer → offer
-│   └── 鼓励 / streak → cheering
+│   ├── 拿到 Offer / 高匹配（≥85%）→ offer
+│   ├── streak / 鼓励 / 截止冲刺 → cheering
+│   └── ⚠️ 紧迫提醒（截止日 / 面试明天）→ anxious
 │
-├── 人脉
-│   └── 拓展 / AI 起草 → networking
+├── 反馈
+│   ├── 保存成功 / 操作完成 / 正面反馈 → thumbs-up
+│   └── 出错 / 重试 → 配 thinking + 文案
 │
-├── 卡住 / 空状态
+├── 人脉 / 消息
+│   └── 拓展 / AI 起草 → thumbs-up（networking 复用同图）
+│
+├── 卡住 / 空状态 / loading 通用
 │   └── 默认 → thinking
 │
-└── 不知道用哪个 → analyzing（最高频）
+└── Hero / 产品脸 → thumbs-up
 ```
 
 ### 3.5 Mascot 红线
@@ -184,9 +196,10 @@ UI 必须帮用户秒懂以下问题：
 - ❌ 不要去掉墨镜（家族识别核心元素）
 - ❌ 不要把求职牛画成 UniMate AI 牛小匠（要有西装/公文包区分）
 - ❌ 不要换成企鹅（那是 Cert Master 的）
-- ❌ 不要自创新表情 — 必须 map 到 8 标准态
-- ❌ 不要给牛改色（黑白 + 橙领带是固定的）
+- ❌ 不要自创新表情 — 必须 map 到 8 标准态（含 2 个新加：`thumbs-up` / `anxious`）
+- ❌ 不要给牛改色（黑白 + 偶尔蓝头带 / 蓝头盔）
 - ❌ 一屏 ≥2 个不同状态 mascot
+- ❌ 不要把 `anxious`（闹钟焦虑）用在新手引导 / 首次登录 —— 第一印象不要焦虑感
 
 ---
 
@@ -381,15 +394,24 @@ UI 必须帮用户秒懂以下问题：
 - Accent：`#5F7CFB` (Primary) 或 `#FF8A7A` (Coral)
 - "AI" 小字可用 Coral 或 Blue（按上下文）
 
-### 7.3 Logo 5 件套（待补）
+### 7.3 Logo 5 件套
 
-| 名称 | 文件 (TODO) | 用途 |
-|------|------------|------|
-| Horizontal | `assets/logo/horizontal.png` | 官网 header / 邮件签名 |
-| Compact | `assets/logo/compact.png` | 海报 / PPT / App 启动 |
-| Avatar | `assets/logo/avatar.png` | 圆头 / favicon |
-| App Icon | `assets/logo/app-icon.png` | 通用 App 图标 |
-| App Icon iOS | `assets/logo/app-icon-ios.png` | iOS 圆角方块 |
+> v0.2 2026-05-14：3 / 5 件套已交付（horizontal + app-icon + app-icon-ios），剩余 compact / avatar 暂用 app-icon 派生。
+
+| 名称 | 文件 | 状态 | 用途 |
+|------|------|------|------|
+| Horizontal | `assets/logo/horizontal.png` | ✅ 1720×914 | 官网 header / 邮件签名（求职牛 + 简历 + 求职匠/JOB HUNTER 横排，箭头从"匠"字伸出） |
+| App Icon | `assets/logo/app-icon.png` | ✅ 662×618 | **Chrome 扩展 / 通用 app 图标 / 商店列表**（Periwinkle 圆角方块 + 求职牛半身 + 求职匠/JOB HUNTER 文字） |
+| App Icon iOS | `assets/logo/app-icon-ios.png` | ✅ 1254×1254 | **iOS 圆角方块 / 头像位**（求职牛西装领带半身 + JH 腰牌；无文字，给 OS 自己加 label） |
+| Compact | `assets/logo/compact.png` | ⏳ TODO | 海报 / PPT / App 启动屏（建议从 horizontal 派生：去文字保留 mascot+briefcase） |
+| Avatar | `assets/logo/avatar.png` | ⏳ TODO | 圆头 / favicon（建议从 app-icon-ios crop） |
+
+**Chrome 扩展 4 尺寸派生**（已自动生成）：
+
+| 尺寸 | 路径 | 来源 |
+|------|------|------|
+| 16 / 32 / 48 / 128 px | `chrome-extension-job-hunter/public/icons/icon-{16,32,48,128}.png` | `sips -z N N app-icon.png` |
+| 48 / 128 px | `jr-academy-web-zh/public/image/chrome-extensions/job-hunter-{48,128}.png` | 同上 |
 
 ### 7.4 Banner 用法
 
@@ -742,7 +764,7 @@ PR diff 出现以下立即打回：
 
 ```
 job-hunter/
-├── index.html                 ← 视觉品牌手册
+├── index.html                 ← 视觉设计系统
 ├── DESIGN.md                  ← 本文件（完整规范）
 ├── README.md                  ← 仓库使用说明
 ├── _source_design.md          ← 原始设计研究稿（存档）
@@ -750,9 +772,26 @@ job-hunter/
 │   ├── tokens.json            ← W3C Design Tokens 源数据
 │   └── tokens.css             ← --jh-* CSS Variables
 ├── assets/
-│   ├── logo/                  ← Logo 5 件套（TODO）
-│   ├── mascot/                ← 8 个求职牛状态（TODO）
-│   │   └── spec-sheet.png     ← ChatGPT spec 原图 ✅
+│   ├── logo/                  ← Logo 件套（3/5 已交付）
+│   │   ├── horizontal.png     ← ✅ 横排 + 文字（官网 header）
+│   │   ├── app-icon.png       ← ✅ Chrome 扩展 / 通用 app（带文字）
+│   │   ├── app-icon-ios.png   ← ✅ iOS 圆角方块（无文字 + 西装牛）
+│   │   ├── compact.png        ← ⏳ TODO（PPT / 海报）
+│   │   └── avatar.png         ← ⏳ TODO（favicon）
+│   ├── mascot/                ← 8 标准态 + 4 alias / hero
+│   │   ├── analyzing.png      ← ✅ AR HUD 数据屏
+│   │   ├── interview-prep.png ← ✅ 蓝头带夜战书+咖啡
+│   │   ├── resume-edit.png    ← ✅ 蓝头带 + 写本子
+│   │   ├── offer.png          ← ✅ 比 V + 100 分
+│   │   ├── thinking.png       ← ✅ 手托下巴 + 问号
+│   │   ├── cheering.png       ← ✅ 飞奔 + 火焰 + 拳头
+│   │   ├── thumbs-up.png      ← ✅ 大拇指 + 闪光（hero 备选）
+│   │   ├── anxious.png        ← ✅ 闹钟 + 吃惊
+│   │   ├── company-research.png ← alias → analyzing
+│   │   ├── networking.png     ← alias → thumbs-up
+│   │   ├── hero.png           ← alias → thumbs-up
+│   │   ├── hero-icon.png      ← alias → thumbs-up
+│   │   └── spec-sheet.png     ← ChatGPT 原 spec 图（存档）
 │   ├── cards/                 ← 6 张卡片插图（TODO）
 │   ├── banners/               ← Hero banner（TODO）
 │   ├── stickers/              ← 装饰贴纸（TODO）
