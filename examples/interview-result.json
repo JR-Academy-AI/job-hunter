@@ -1,0 +1,96 @@
+{
+  "id": "example-url-shortener-v1",
+  "kind": "pre-generated-fictional",
+  "candidate": "Alex Chen",
+  "company": "Harbour Link (fictional)",
+  "role": "Mid Backend Engineer",
+  "round": "System Design",
+  "topicKey": "url-shortener-architectures",
+  "title": "URL Shortener · Architecture decision record",
+  "question": "Design a URL shortening service. Explain the source of truth, redirect path, collision handling and degraded behaviour.",
+  "sections": [
+    {
+      "title": "Requirements and assumptions",
+      "body": "This fictional workload creates 100 million links daily, with 20 redirects per created link: approximately 1,157 writes/s and 23,148 reads/s on average. These assumptions align the example with the existing Lab topic scale; they are not measured peak capacity. Peak traffic, retention, regional availability and abuse policy remain open requirements."
+    },
+    {
+      "title": "Architecture and state ownership",
+      "body": "A creation API validates the destination, allocates a code and commits the code-to-URL mapping to durable storage before acknowledging success. A redirect service checks the cache, reads the mapping store on a miss and then populates the cache. The mapping store is authoritative; the cache is a disposable copy. The diagram separates creation and redirect paths, even if a small initial deployment shares compute."
+    },
+    {
+      "title": "Collision and security decisions",
+      "body": "A unique constraint detects duplicate codes; allocation retries after a conflict. Creation is rate limited and destinations are checked against an abuse policy. Random codes are not an access control mechanism. Private links would require an explicit authorization design."
+    },
+    {
+      "title": "Failure and recovery",
+      "body": "When the cache fails, redirects may fall back to the store within a bounded concurrency budget; excess traffic receives a clear retryable failure. When both the cache misses and the authoritative store is unavailable, the service fails rather than inventing a destination. Recovery should warm popular keys gradually and monitor store saturation."
+    },
+    {
+      "title": "Trade-off and limits",
+      "body": "The initial proposal uses a durable mapping store plus cache because reads dominate this assumed workload. This does not establish that one database meets production requirements. Sharding or regional replicas require evidence about peak load, storage growth, latency and consistency. No production load or recovery experiment was executed for this example."
+    },
+    {
+      "title": "Feedback and next action",
+      "body": "The answer identifies the state owner and explains cache failure without treating cache as the only copy. It still needs a justified origin concurrency limit, peak-load assumptions, expiration semantics and a recovery experiment. Use the existing Lab to inspect the available topology and failure paths, then explain what changes under a new constraint. This feedback is pre-generated, not an employer assessment or a live AI result."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "client",
+      "label": "Client",
+      "x": 10,
+      "y": 95
+    },
+    {
+      "id": "create",
+      "label": "Create API",
+      "x": 185,
+      "y": 25
+    },
+    {
+      "id": "redirect",
+      "label": "Redirect",
+      "x": 185,
+      "y": 165
+    },
+    {
+      "id": "cache",
+      "label": "Cache",
+      "x": 380,
+      "y": 165
+    },
+    {
+      "id": "store",
+      "label": "Mapping store",
+      "x": 575,
+      "y": 25
+    }
+  ],
+  "edges": [
+    {
+      "from": "client",
+      "to": "create",
+      "label": "create"
+    },
+    {
+      "from": "create",
+      "to": "store",
+      "label": "commit mapping"
+    },
+    {
+      "from": "client",
+      "to": "redirect",
+      "label": "resolve code"
+    },
+    {
+      "from": "redirect",
+      "to": "cache",
+      "label": "cache lookup"
+    },
+    {
+      "from": "redirect",
+      "to": "store",
+      "label": "on miss: read mapping"
+    }
+  ]
+}
