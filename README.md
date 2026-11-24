@@ -1,4 +1,4 @@
-# Job Hunter / 求职匠 — Design System
+# Jobpin / 职聘 — Design System
 
 > 这是一个 **UI 规范 / 设计系统**，不是产品代码。
 > 双击 `index.html` 就能看，不需要 npm install / 不需要 build。

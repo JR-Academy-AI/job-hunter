@@ -1,4 +1,4 @@
-# Job Hunter / 求职匠 — Design System
+# Jobpin / 职聘 — Design System
 
 > **完整设计规范文档**。目标读者：Claude / 设计师 / 前端 / 内容运营。
 > 任何关于「该用什么色、什么字、什么 mascot、什么按钮」的问题，先来这里查。
@@ -34,7 +34,7 @@
 
 ## 1. 品牌定位
 
-**Job Hunter / 求职匠** — 全球华人求职者的 AI 求职助手。
+**Jobpin / 职聘** — 全球华人求职者的 AI 求职助手。
 
 | 维度 | 内容 |
 |------|------|
@@ -52,7 +52,7 @@
 |---------|----------|---------------|-------------|
 | **UniMate AI / 牛小匠** | 大学生 / 留学生 | 课程 / 复习 / AI 课代表 | Warm Coral · Playful Study Companion |
 | **Cert Master / 考证匠** | 考证人 (在职+应届) | 注会 / 一建 / 法考 等证书 | Yellow · Professional 备考 |
-| **Job Hunter / 求职匠** ← | **求职者 / 毕业生 / 转行者** | **求职全流程** | **Warm Blue · Professional Career** |
+| **Jobpin / 职聘** ← | **求职者 / 毕业生 / 转行者** | **求职全流程** | **Warm Blue · Professional Career** |
 
 ### 不做什么
 
@@ -325,7 +325,7 @@ UI 必须帮用户秒懂以下问题：
 
 ### 5.5 红线
 
-- ❌ 求职匠**比 UniMate 更克制** — 不要用 Caveat 手写体（那是 UniMate 的）
+- ❌ 职聘**比 UniMate 更克制** — 不要用 Caveat 手写体（那是 UniMate 的）
 - ❌ Body 字号不要 < 13px（中文阅读不舒服）
 - ❌ 一屏 ≥4 种字号（视觉过载）
 - ❌ 标题不要细字重（< Bold） — 体现专业可信感
@@ -362,7 +362,7 @@ UI 必须帮用户秒懂以下问题：
 | full | 9999 | `--jh-radius-full` | Buttons / pills |
 
 **默认偏好**：卡片用 `xl` (22px)，hero banner 用 `xxxl` (36px)，按钮用 `full`。
-求职匠**比 UniMate AI 略克制**（UniMate `lg=24/xl=40`，求职匠 `xl=22/xxl=28`），但仍然是友好圆角。
+职聘**比 UniMate AI 略克制**（UniMate `lg=24/xl=40`，职聘 `xl=22/xxl=28`），但仍然是友好圆角。
 
 ### 6.3 Shadow
 
@@ -384,7 +384,7 @@ UI 必须帮用户秒懂以下问题：
 ### 7.1 Logo 组成
 
 ```text
-[ 求职牛头像 + 放大镜 / 公文包 / 上升箭头 ] + 求职匠
+[ 求职牛头像 + 放大镜 / 公文包 / 上升箭头 ] + 职聘
 副标题：你的 AI 求职助手
 ```
 
@@ -617,7 +617,7 @@ padding: 24px;
 - Direct 直接
 - Actionable 可执行
 - Friendly 友好
-- **比 UniMate AI 更克制**（UniMate 偏 meme，求职匠偏专业）
+- **比 UniMate AI 更克制**（UniMate 偏 meme，职聘偏专业）
 
 ### 9.2 中文文案范例
 
@@ -647,7 +647,7 @@ padding: 24px;
 - "您" — 用"你"
 - "亲爱的求职者" — 太教务系统
 - "智能化 / 数字化 / 赋能" — SaaS 味
-- "Deadline 战神 / 我裂开了" — 那是 UniMate AI 的 meme，求职匠不要
+- "Deadline 战神 / 我裂开了" — 那是 UniMate AI 的 meme，职聘不要
 - "考过 / 拿下证书" — 那是 Cert Master 的语境
 
 ### 9.5 场景文案
@@ -807,14 +807,14 @@ job-hunter/
 
 Job Hunter 跟 UniMate AI / Cert Master 同属 JR Academy 匠人家族，**严格视觉/品牌隔离**：
 
-| 维度 | UniMate AI (牛小匠) | Cert Master (考证匠) | **Job Hunter (求职匠)** |
+| 维度 | UniMate AI (牛小匠) | Cert Master (考证匠) | **Jobpin (职聘)** |
 |------|---------------------|----------------------|--------------------------|
 | Mascot | 普通牛小匠 🐂 | 企鹅 🐧 | **求职牛 (墨镜 + 西装 + 公文包) 🐂🕶** |
 | Primary | Coral `#FF7A66` | 考证黄 `#FFC52A` | **Periwinkle `#5F7CFB`** |
 | Accent | Bubblegum / Sunshine | 活力橙 | **Coral `#FF8A7A`**（Offer 专用） |
 | 主 bg | 暖白 `#FFFEF7` | 背景灰 `#F5F6F8` | **暖白 `#FFFEF7`** |
 | 主字体 | Plus Jakarta Sans | PingFang SC | **PingFang SC / 思源黑体** |
-| Accent 字体 | Caveat 手写 | 无 | **无**（求职匠克制） |
+| Accent 字体 | Caveat 手写 | 无 | **无**（职聘克制） |
 | 网格 | 8pt | 4pt | **4pt** |
 | 圆角偏好 | lg=24, xl=40（最圆） | lg=16, xl=24 | **xl=22, xxxl=36** |
 | 渐变 | first-class（5 grad） | 无 | **first-class（4 grad）** |
@@ -836,10 +836,10 @@ Job Hunter 跟 UniMate AI / Cert Master 同属 JR Academy 匠人家族，**严�
 
 ### Cert Master 完全隔离
 
-求职匠跟 Cert Master 没有任何视觉共用：
-- ❌ 求职匠 不要出现企鹅
-- ❌ 求职匠 不要用考证黄 `#FFC52A`
-- ❌ 求职匠 不要用背景灰 `#F5F6F8`
+职聘跟 Cert Master 没有任何视觉共用：
+- ❌ 职聘 不要出现企鹅
+- ❌ 职聘 不要用考证黄 `#FFC52A`
+- ❌ 职聘 不要用背景灰 `#F5F6F8`
 
 ### 隔离实施
 
@@ -882,5 +882,5 @@ _v0.1 · 2026-05-12 · JR Academy_
 
 - 手机：一级页头与下划线页签，页面模式用单个原生分段控件；避免多层大胶囊。成果页首屏直接呈现方案标题与架构。
 - 桌面：稳定侧栏、白色工作画布、28px 页面标题；导航选中态仅浅蓝底与文字强调，不叠渐变和发光。
-- 授权：求职匠身份、当前账号和明确主操作优先；不用 Desktop 后缀区分同一产品，不混用母品牌橙粉 CTA。
+- 授权：职聘身份、当前账号和明确主操作优先；不用 Desktop 后缀区分同一产品，不混用母品牌橙粉 CTA。
 - 卡片用于组织独立信息，不把页面标题、每段说明、每个步骤都包成装饰卡。状态、错误、加载与键盘焦点继续使用同一语义 token。
